@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  
+    
+    <h1 class="show__h1" style="visibility: hidden;">Tweets classificados</h1>
+    {% for tweet_name, tweet, classf in mylists %}
+        <div class="tweet__box">
+            <p class="tweet__text">"{{tweet}}"</p>
+            <p class="tweet__text"> - @{{tweet_name}}</p>
+            {% if classf == 1 %}
+                <p class="tweet__classificacao">Classificação: Positivo</p>
+            {% elif classf == 0 %}
+                <p class="tweet__classificacao">Classificação: Negativo</p>
+            {% endif %}
+        </div> 
+    
+        
+        {% if tweet == last_tweet %}
+        <div class="result__box">
+            <div id="corner-tl" class="corner"></div>
+			<div id="corner-tr" class="corner"></div>
+            <h3 class="result__title">Resultados</h3>
+            <div class="">
+                <p class="result__text">Termo pesquisado: "{{search_query}}"</p>
+                <p class="result__text">Porcentagem de comentários positivos: {{mediaPos}}%</p>
+                <p class="result__text">Porcentagem de comentários negativos: {{mediaNeg}}%</p>
+                <p></p>
+                {% if mediaPos > mediaNeg %}
+                    <p class="result__text">Avaliação geral: <strong>Positivo</strong>. Produto apresenta boa popularidade.</p>
+                {% else %}
+                    <p class="result__text">Avaliação geral: <strong>Negativo</strong>. Produto apresenta baixa popularidade.</p>
+                {% endif %}
+            </div>
+            <div id="corner-br" class="corner"></div>
+			<div id="corner-bl" class="corner"></div>
+        </div>
+        {% endif %}
+    {% endfor %}
+    
+    <!--=== SEARCH BOX ===-->
+    <div class="search__box" id="search__box">
+        <form class="form" method="POST" id="form">
+            {% csrf_token %}
+                <label for="search"><h1 class="first__title">Classificador de Tweets</h1></label>
+                <input type="text" class="first__input" id="input__text" name='search_query' placeholder="Search" required>
+        </form>
+        <p class="first__subtitle">*Pesquise um termo para ver uma lista de tweets e suas respectivas classificações.</p>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,258 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Raleway:wght@300;400;600;700&family=Roboto:wght@500&display=swap');
+
+:root{
+
+    /*=== Font Weight ===*/
+    --font-light:300;
+    --font-medium: 500;
+    --font-semi-bold:600;
+    --font-bold: 700;
+
+    /*=== Colors ===*/
+    --first-color: rgba(119, 198, 242, 1);
+    --first-color-dark: rgba(26, 107, 153, 1);
+    --first-color-light: rgba(240, 242, 242, 1);
+    --first-color-gray: rgba(152, 152, 152, 1);
+
+    /*=== Font & Typography ===*/
+    --body-font: 'Poppins', sans-serif;
+    --results-font: 'Raleway', sans-serif;
+    --search-font: 'Roboto', sans-serif;
+    --h1-font-size: 3rem;
+    --h2-font-size: 2.25rem;
+    --normal-font: 1rem;
+    --tweet-font: 1.25rem;
+    --classification-font: 1.5rem;
+
+    /*=== Margins ===*/
+    --mb-1: .5rem;
+    --mb-2: 1rem;
+    --mb-3: 1.5rem;
+    --mb-4: 2rem;
+    --mb-5: 2.5rem;
+
+      /*===Z-index===*/
+      --z-index: 100;
+}
+
+
+@media screen and (min-width: 768px){
+    :root {
+        --body-font: 'Poppins', sans-serif;
+        --h1-font-size: 2.25rem;
+        --h2-font-size: 1.5rem;
+        --classification-font: 1.25rem;
+        --tweet-font: 1rem;
+    }
+}
+
+/*=== BASE ===*/
+*, ::before, ::after{
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-weight: var(--font-medium);
+    background-color: var(--first-color);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+h1,h2,h3,p{
+    margin: 0;
+}
+
+h3 {
+    font-weight: var(--font-semi-bold);
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: var(--text-color);
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/*=== SEARCHBOX LAYOUT ===*/
+
+.search__box{
+    max-width: 500px;
+    background-color: var(--first-color);
+    margin: 0 auto;
+    text-align: center;
+}
+
+.first__title{
+    font-family: var(--body-font);
+    font-weight: var(--font-semi-bold);
+    margin-bottom: var(--mb-3);
+    color: var(--first-color-light);
+}
+
+.first__subtitle{
+    font-family: var(--results-font);
+    font-weight: var(--font-light);
+    font-size: 0.75rem;
+    color: var(--first-color-dark);
+    margin-top: var(--mb-1);
+}
+
+
+.first__input{
+    width: 455px;
+    height: 40px;
+    border: 0px solid var(--first-color);
+    border-radius: .312rem;
+    text-align: left;
+}
+
+input:focus {
+   outline: none;
+}
+
+#input__text{
+    font-family: var(--search-font);
+    padding-left: 1rem;
+}
+
+.search__icon {
+    position: absolute;
+    float: right;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 30%;
+    right: 7%;
+    border-radius: .312rem;
+    cursor: pointer;
+    color: var(--first-color-gray);
+    font-weight: var(--font-bold);
+    font-size: var(--normal-font);
+}
+
+
+::placeholder{
+    padding-top: 1rem;
+    font-family: var(--search-font);
+    color: var(--first-color-gray);
+    font-weight: var(--font-medium);
+    font-size: var(--normal-font);
+}
+
+/*=== TWEETS CLASSIFICADOS ===*/
+
+.tweet__box{
+    background-color: var(--first-color-light);
+    max-width: 910px;
+    margin-left: 25%;
+    margin-bottom: 1.5rem;
+    padding: 2rem;
+    word-wrap: break-word;
+    border-radius: 1.25rem;
+}
+
+.tweet__text{
+    font-family: var(--body-font);
+    font-size: var(--tweet-font);
+    font-weight: var(--font-semi-bold);
+    color: rgba(0, 0, 0, 1);
+}
+
+.tweet__text:nth-child(2n){
+    padding-top: var(--mb-1);
+}
+
+.tweet__classificacao{
+    font-family: var(--body-font);
+    font-size: var(--classification-font);
+    font-weight: var(--font-semi-bold);
+    color: rgba(0, 0, 0, 1);
+    padding-top: var(--mb-2);
+}
+
+/*=== RESULTADOS ===*/
+
+.result__box{
+    background-color: var(--first-color-dark);
+    max-width: 910px;
+    margin-left: 25%;
+    margin-bottom: var(--mb-3);
+    padding: 2rem 0 1rem 5rem;
+    position: relative;
+    border-radius: 1.25rem;
+}
+
+.result__title{
+    font-family: var(--body-font);
+    font-size: var(--h1-font-size);
+    font-weight: var(--font-semi-bold);
+    color: var(--first-color-light);
+    margin-bottom: var(--classification-font);
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    letter-spacing: 5px;
+    
+}
+
+.result__text{
+    font-family: var(--results-font);
+    font-weight: var(--font-semi-bold);
+    font-size: var(--classification-font);
+    color: var(--first-color-light);
+    margin-bottom: var(--mb-3);
+}
+
+.corner {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    border: 1.5px solid var(--first-color-dark);
+    background-color: #fff;
+    position: absolute;
+}
+
+#corner-tl {
+    top: 10px;
+    left: 10px;
+}
+
+#corner-tr {
+    top: 10px;
+    right: 10px;
+}
+
+#corner-br {
+    bottom: 10px;
+    right: 10px;
+}
+
+#corner-bl {
+    bottom: 10px;
+    left: 10px;
+}
+
+/*=== SECOND SEARCH BOX ===*/
+
+.show {
+   visibility: visible;
+}
+
+
+
+
+
